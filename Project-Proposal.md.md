@@ -1,19 +1,19 @@
 # Project Proposal: Simon Says(Memory Game)
 
-Team Members: Fayes-braincell, BlueSky1234
-Client: Our Team
-Date: 11/14/2024
+## Team Members: Fayes-braincell, BlueSky1234
+## Client: Our Team
+## Date: 11/14/2024
 
 
 
 1. **App Idea**
-    Our game is a reskin of Simon Says that will use words and symbols instead of colors and the symbols will randomly alternate between rounds.
+    #### Our game is a reskin of Simon Says that will use words and symbols instead of colors and the symbols will randomly alternate between rounds.
 
 2. **Target Audience**
-    This game is designed to appeal to ages 9 and up who enjoy memorization and motor skill games.
+    #### This game is designed to appeal to ages 9 and up who enjoy memorization and motor skill games.
 
 3. **Goals and Vision**
-    The client wants the game to be Engaging and fun, have a focus on motor skills, and to have the right amount of difficulty. 
+    #### The client wants the game to be Engaging and fun, have a focus on motor skills, and to have the right amount of difficulty. 
 
 4. **Key Features**
 	-	Items for memory will be symbols and words so that the game is a bit of a fun challenge..
@@ -23,7 +23,7 @@ Date: 11/14/2024
     Difficulty options: The player can choose if they want their game to quicken as they progress or if they want it to be of more steady game play.
 
 5. **Success Criteria**
-    Successfully adding a new layer of difficulty to the game(the position changing answers) that will appeal to older kids without losing attraction or quality. 
+    #### Successfully adding a new layer of difficulty to the game(the position changing answers) that will appeal to older kids without losing attraction or quality. 
 
 6. **Technical Requirements**
 
