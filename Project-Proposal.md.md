@@ -6,18 +6,18 @@ Date: 11/14/2024
 
 
 
-1. App Idea
+1. **App Idea**
 Our game is a reskin of Simon Says that will use words and symbols instead of colors and the symbols will randomly alternate between rounds.
 
-2. Target Audience
+2. **Target Audience**
 This game is designed to appeal to ages 9 and up who enjoy memorization and motor skill games.
 
-3. Goals and Vision
+3. **Goals and Vision**
 The client wants the game to be Engaging and fun, have a focus on motor skills, and to have the right amount of difficulty. 
 
 
 
-4. Key Features
+4. **Key Features**
 List out the main features of your game. What will the game do? Include both gameplay features and any technical requirements.
 Example:
 	-	Items for memory will be symbols and words so that the game is a bit of a fun challenge..
@@ -27,13 +27,13 @@ Example:
 Difficulty options: The player can choose if they want their game to quicken as they progress or if they want it to be of more steady game play.
 
 
-5. Success Criteria
+5. **Success Criteria**
 What does success look like for this project? How will you know if the game is a hit?
 Successfully adding a new layer of difficulty to the game(the position changing answers) that will appeal to older kids without losing attraction or quality. 
 
 
 
-6. Technical Requirements
+6. **Technical Requirements**
 List any specific technical needs for your game, like the platform it will run on (e.g., PC, mobile, console), controls, or performance requirements.
 
 The game will be made to run on Mobile and PC and be functionable at an fps level as low as 30. 
