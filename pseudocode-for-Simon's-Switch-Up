@@ -1,0 +1,180 @@
+// Global Variables
+high_scores ← { "casual": 0, "challenge": 0 }
+game_not_over ← True
+current_score ← 0
+
+// Main Menu
+FUNCTION display_main_menu()
+    PRINT "Welcome to Simon Says!"
+    PRINT "Choose a game mode:"
+    PRINT "1. Casual Mode"
+    PRINT "2. Challenge Mode"
+    user_choice ← INPUT()
+
+    IF user_choice = "1" THEN
+        CALL start_casual_mode()
+    ELSE IF user_choice = "2" THEN
+        CALL start_challenge_mode()
+    ELSE
+        PRINT "Invalid choice. Please try again."
+        CALL display_main_menu()
+    END IF
+END FUNCTION
+
+// Casual Mode
+FUNCTION start_casual_mode()
+    current_score ← 0
+    game_not_over ← True
+    CALL countdown_timer()
+    CALL initialize_game(score ← 0, mode ← "casual")
+
+    WHILE game_not_over DO
+        CALL prompt_player()
+        player_choice ← INPUT()
+        IF CALL is_correct_choice(player_choice) THEN
+            CALL update_score(5)
+        ELSE
+            CALL update_score(-2)
+        END IF
+        CALL update_positions()
+        CALL check_game_over()
+    END WHILE
+
+    CALL display_high_score("casual")
+END FUNCTION
+
+// Challenge Mode
+FUNCTION start_challenge_mode()
+    current_score ← 0
+    game_not_over ← True
+    CALL countdown_timer()
+    CALL initialize_game(score ← 0, mode ← "challenge")
+
+    round_counter ← 0
+    WHILE game_not_over DO
+        CALL prompt_player()
+        player_choice ← INPUT()
+        IF CALL is_correct_choice(player_choice) THEN
+            IF round_counter ≥ 5 THEN
+                CALL update_score(6)
+            ELSE
+                CALL update_score(5)
+            END IF
+        ELSE
+            IF round_counter ≥ 5 THEN
+                CALL update_score(-4)
+            ELSE
+                CALL update_score(-2)
+            END IF
+        END IF
+        CALL update_positions()
+        round_counter ← round_counter + 1
+        IF round_counter ≥ 6 THEN
+            CALL increase_game_speed()
+        END IF
+        CALL check_game_over()
+    END WHILE
+
+    CALL display_high_score("challenge")
+END FUNCTION
+
+// Check Game Over
+FUNCTION check_game_over()
+    IF CALL some_game_over_condition() THEN
+        game_not_over ← False
+    END IF
+END FUNCTION
+
+// Pause Game
+FUNCTION pause_game()
+    PRINT "Game Paused. Resume or Exit?"
+    choice ← INPUT()
+
+    IF choice = "R" THEN
+        PRINT "Game Resumed."
+    ELSE IF choice = "E" THEN
+        CALL save_high_score()
+        CALL stop_game("Game ended by player.")
+    ELSE
+        PRINT "Invalid choice."
+        CALL pause_game()
+    END IF
+END FUNCTION
+
+// Save High Score
+FUNCTION save_high_score()
+    IF current_score > high_scores[mode] THEN
+        high_scores[mode] ← current_score
+        PRINT "New High Score Saved!"
+    END IF
+END FUNCTION
+
+// Display High Score
+FUNCTION display_high_score(mode)
+    PRINT "Game Over! Your score: " + current_score
+    PRINT "High Score (" + mode.capitalize() + " Mode): " + high_scores[mode]
+END FUNCTION
+
+// Display Achievements
+FUNCTION display_achievements()
+    FOR EACH achievement IN achievements DO
+        IF achievement["completed"] = True THEN
+            PRINT achievement + ": Completed"
+        ELSE
+            PRINT achievement + ": In Progress (" + achievement["progress"] + "%)"
+        END IF
+    END FOR
+    CALL scroll_achievements()
+END FUNCTION
+
+// Handle App Reopen
+FUNCTION on_app_reopen()
+    PRINT "Welcome back to Simon Says!"
+    PRINT "High Scores:"
+    PRINT "Casual Mode: " + high_scores["casual"]
+    PRINT "Challenge Mode: " + high_scores["challenge"]
+    CALL display_main_menu()
+END FUNCTION
+
+// Utility Functions (placeholders for functionality)
+FUNCTION countdown_timer()
+    PRINT "Countdown begins..."
+END FUNCTION
+
+FUNCTION initialize_game(score, mode)
+    PRINT "Initializing " + mode.capitalize() + " Mode..."
+END FUNCTION
+
+FUNCTION prompt_player()
+    PRINT "Prompting player for input..."
+END FUNCTION
+
+FUNCTION is_correct_choice(choice)
+    RETURN True  // Placeholder for actual correctness check
+END FUNCTION
+
+FUNCTION update_score(points)
+    current_score ← current_score + points
+    PRINT "Score updated: " + current_score
+END FUNCTION
+
+FUNCTION update_positions()
+    PRINT "Updating positions of symbols and words..."
+END FUNCTION
+
+FUNCTION some_game_over_condition()
+    RETURN False  // Placeholder for actual condition
+END FUNCTION
+
+FUNCTION stop_game(message)
+    game_not_over ← False
+    PRINT message
+END FUNCTION
+
+FUNCTION increase_game_speed()
+    PRINT "Increasing game speed..."
+END FUNCTION
+
+FUNCTION scroll_achievements()
+    PRINT "Scrolling through achievements..."
+END FUNCTION
